@@ -1,5 +1,14 @@
+import { Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+
 const App = () => {
-  return <div>React + Vite Js + Eslint + Prettier + Husky</div>;
+  return (
+    <>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </>
+  );
 };
 
 export default App;
