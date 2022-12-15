@@ -16,26 +16,26 @@ import slide3 from './images/SlideCard/slide-3.png';
 import slide4 from './images/SlideCard/slide-4.png';
 
 const assets = {
-  images : {
-    logo : logo,
-    catImage : {
-      cat1 : cat1,
-      cat2 : cat2,
-      cat3 : cat3,
-      cat4 : cat4,
-      cat5 : cat5,
-      cat6 : cat6,
-      cat7 : cat7,
-      cat8 : cat8,
-      cat9 : cat9,
-      cat10 : cat10,
-      cat11 : cat11,
+  images: {
+    logo: logo,
+    catImage: {
+      cat1: cat1,
+      cat2: cat2,
+      cat3: cat3,
+      cat4: cat4,
+      cat5: cat5,
+      cat6: cat6,
+      cat7: cat7,
+      cat8: cat8,
+      cat9: cat9,
+      cat10: cat10,
+      cat11: cat11,
     },
-    slideImage : {
-      slide1 : slide1,
-      slide2 : slide2,
-      slide3 : slide3,
-      slide4 : slide4,
+    slideImage: {
+      slide1: slide1,
+      slide2: slide2,
+      slide3: slide3,
+      slide4: slide4,
     },
   },
 };
