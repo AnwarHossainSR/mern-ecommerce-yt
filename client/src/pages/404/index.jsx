@@ -1,5 +1,5 @@
-const index = () => {
-  return <div>index</div>;
+const NotFound = () => {
+  return <div>NotFound</div>;
 };
 
-export default index;
+export default NotFound;
