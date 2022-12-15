@@ -1,5 +1,13 @@
+import FlashDeals from '../../components/App/flashDeals';
+import Hero from '../../components/App/Hero';
+
 const Home = () => {
-  return <div>Home</div>;
+  return (
+    <>
+      <Hero />
+      <FlashDeals />
+    </>
+  );
 };
 
 export default Home;
