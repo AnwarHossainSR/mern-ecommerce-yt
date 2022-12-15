@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
+import Footer from '../components/App/common/Footer/Footer';
 import Header from '../components/App/common/Header/Header';
 import NotFound from '../pages/404';
 import Login from '../pages/auth/Login';
@@ -21,6 +22,7 @@ const Layout = () => {
         <Route path="/register" element={<Register />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <Footer />
     </div>
   );
 };
