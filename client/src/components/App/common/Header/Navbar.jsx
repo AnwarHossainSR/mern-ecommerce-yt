@@ -10,7 +10,7 @@ const Navbar = () => {
           <div className="catgrories d_flex">
             <span className="fa-solid fa-border-all" />
             <h4>
-              Categories <i className="fa fa-chevron-down" />
+              Categories <i className="fas fa-caret-down" />
             </h4>
           </div>
 
@@ -22,16 +22,16 @@ const Navbar = () => {
               onClick={() => setMobileMenu(false)}
             >
               <li>
-                <Link to="/">home</Link>
+                <Link to="/">Home</Link>
               </li>
               <li>
-                <Link to="/user">account</Link>
+                <Link to="/products">Products</Link>
               </li>
               <li>
-                <Link to="/track">track my order</Link>
+                <Link to="/user">Account</Link>
               </li>
               <li>
-                <Link to="/contact">contact</Link>
+                <Link to="/track">Orders</Link>
               </li>
             </ul>
 
