@@ -21,9 +21,9 @@ import slide3 from './images/SlideCard/slide-3.png';
 import slide4 from './images/SlideCard/slide-4.png';
 
 const assets = {
-  images : {
+  images: {
     logo,
-    catImage : {
+    catImage: {
       cat1,
       cat2,
       cat3,
@@ -36,13 +36,13 @@ const assets = {
       cat10,
       cat11,
     },
-    slideImage : {
+    slideImage: {
       slide1,
       slide2,
       slide3,
       slide4,
     },
-    flash : {
+    flash: {
       flash1,
       flash2,
       flash3,
