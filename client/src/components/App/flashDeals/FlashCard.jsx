@@ -8,15 +8,16 @@ const FlashCard = ({ productItems, addToCart }) => {
       {productItems.map((productItem) => {
         return (
           <div className="product_container " key={productItem.id}>
-            <div
-              className="product mtop"
-              onClick={() => navigate(`products/id`)}
-            >
+            <div className="product mtop">
               <div className="img">
                 {productItem.discount > 0 && (
                   <span className="discount">{productItem.discount}% Off</span>
                 )}
-                <img src={productItem.cover} alt="" />
+                <img
+                  src={productItem.cover}
+                  alt=""
+                  onClick={() => navigate(`products/id`)}
+                />
               </div>
               <div className="product-details">
                 <h3>{productItem.name}</h3>

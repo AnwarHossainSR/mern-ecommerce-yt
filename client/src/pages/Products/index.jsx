@@ -18,3 +18,8 @@ const Products = () => {
 };
 
 export default Products;
+
+// Path: client/src/pages/Products/index.jsx
+// Compare this snippet from client/src/components/App/flashDeals/FlashCard.jsx:
+// import Rating from '@mui/material/Rating';
+

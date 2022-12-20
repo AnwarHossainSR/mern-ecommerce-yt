@@ -15,6 +15,16 @@ import flash3 from './images/flash/flash-3.png';
 import flash4 from './images/flash/flash-4.png';
 import flash5 from './images/flash/flash-5.png';
 import logo from './images/logo.svg';
+import shop1 from './images/shops/shops-1.png';
+import shop10 from './images/shops/shops-10.png';
+import shop2 from './images/shops/shops-2.png';
+import shop3 from './images/shops/shops-3.png';
+import shop4 from './images/shops/shops-4.png';
+import shop5 from './images/shops/shops-5.png';
+import shop6 from './images/shops/shops-6.png';
+import shop7 from './images/shops/shops-7.png';
+import shop8 from './images/shops/shops-8.png';
+import shop9 from './images/shops/shops-9.png';
 import slide1 from './images/SlideCard/slide-1.png';
 import slide2 from './images/SlideCard/slide-2.png';
 import slide3 from './images/SlideCard/slide-3.png';
@@ -48,6 +58,18 @@ const assets = {
       flash3,
       flash4,
       flash5,
+    },
+    shops: {
+      shop1,
+      shop2,
+      shop3,
+      shop4,
+      shop5,
+      shop6,
+      shop7,
+      shop8,
+      shop9,
+      shop10,
     },
   },
 };
