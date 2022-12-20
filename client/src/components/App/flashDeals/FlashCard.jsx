@@ -1,3 +1,4 @@
+import Rating from '@mui/material/Rating';
 import { useNavigate } from 'react-router-dom';
 
 const FlashCard = ({ productItems, addToCart }) => {
@@ -19,13 +20,11 @@ const FlashCard = ({ productItems, addToCart }) => {
               </div>
               <div className="product-details">
                 <h3>{productItem.name}</h3>
-                <div className="rate">
-                  <i className="fa fa-star" />
-                  <i className="fa fa-star" />
-                  <i className="fa fa-star" />
-                  <i className="fa fa-star" />
-                  <i className="fa fa-star" />
-                </div>
+                <Rating
+                  name="half-rating"
+                  defaultValue={productItem.rating}
+                  precision={0.5}
+                />
                 <div className="price">
                   <h4>${productItem.price}.00 </h4>
                   <button onClick={() => addToCart(productItem)}>
