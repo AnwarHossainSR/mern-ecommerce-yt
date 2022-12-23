@@ -1,13 +1,20 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
+  const { pathname } = useLocation();
+
   const [MobileMenu, setMobileMenu] = useState(false);
   return (
     <>
       <header className="header">
         <div className="container d_flex">
-          <div className="catgrories d_flex">
+          <div
+            className="catgrories d_flex"
+            style={{
+              display: pathname.startsWith('/products') ? 'none' : null,
+            }}
+          >
             <span className="fa-solid fa-border-all" />
             <h4>
               Categories <i className="fas fa-caret-down" />
