@@ -6,7 +6,6 @@ import Login from '../pages/auth/Login';
 import Register from '../pages/auth/Register';
 import Home from '../pages/Home';
 import Products from '../pages/Products';
-import ProductDetails from '../pages/Products/ProductDetails';
 
 const Layout = () => {
   return (
@@ -16,7 +15,6 @@ const Layout = () => {
         <Route path="/" element={<Home />} />
         <Route path="/products">
           <Route index element={<Products />} />
-          <Route path=":id" element={<ProductDetails />} />
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />

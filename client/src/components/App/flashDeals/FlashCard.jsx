@@ -1,8 +1,6 @@
 import Rating from '@mui/material/Rating';
-import { useNavigate } from 'react-router-dom';
 
 const FlashCard = ({ productItems, addToCart }) => {
-  const navigate = useNavigate();
   return (
     <>
       {productItems.map((productItem) => {
@@ -13,11 +11,7 @@ const FlashCard = ({ productItems, addToCart }) => {
                 {productItem.discount > 0 && (
                   <span className="discount">{productItem.discount}% Off</span>
                 )}
-                <img
-                  src={productItem.cover}
-                  alt=""
-                  onClick={() => navigate(`products/id`)}
-                />
+                <img src={productItem.cover} alt="" />
               </div>
               <div className="product-details">
                 <h3>{productItem.name}</h3>
