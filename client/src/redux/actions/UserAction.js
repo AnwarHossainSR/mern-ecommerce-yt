@@ -1,9 +1,9 @@
-import { userFailure, userPending } from '../reducers/UserSlice';
+import {userFailure, userPending} from '../reducers/UserSlice';
 
 export const getAuthUserAction = () => async (dispatch) => {
   dispatch(userPending());
   try {
-    //TODO: Auth user
+    // TODO: Auth user
   } catch (error) {
     dispatch(userFailure());
   }
