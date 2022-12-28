@@ -35,11 +35,11 @@ const Navbar = () => {
                 <Link to="/products">Products</Link>
               </li>
               <li>
-                <Link to="/user">Account</Link>
+                <Link to="/login">Login</Link>
               </li>
-              <li>
+              {/* <li>
                 <Link to="/track">Orders</Link>
-              </li>
+              </li> */}
             </ul>
 
             <button

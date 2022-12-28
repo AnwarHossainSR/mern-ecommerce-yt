@@ -1,7 +1,19 @@
-import { Button, Stack, TextField } from '@mui/material';
+import { Button, Stack, TextField, Typography } from '@mui/material';
+import { useRef } from 'react';
+import { Link } from 'react-router-dom';
 import WHiteSpace from '../../components/App/whitespac/WHiteSpace';
+import { PostRequest } from '../../utils/requests';
 
 const Login = () => {
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const handleSubmit = () => {
+    const response = PostRequest('/login', {
+      email: emailRef.current.value,
+      password: passwordRef.current.value,
+    });
+    console.log(response);
+  };
   return (
     <Stack>
       <Stack
@@ -27,10 +39,26 @@ const Login = () => {
           pt={5}
         >
           <h2>Login</h2>
-          <TextField label="Email" variant="outlined" />
-          <TextField label="Password" variant="outlined" />
+          <TextField
+            label="Email"
+            type="email"
+            variant="outlined"
+            inputRef={emailRef}
+          />
+          <TextField
+            label="Password"
+            type="password"
+            variant="outlined"
+            inputRef={passwordRef}
+          />
           <WHiteSpace height={20} />
-          <Button variant="contained">Login</Button>
+          <Button variant="contained" onClick={handleSubmit}>
+            Login
+          </Button>
+
+          <Typography variant="p">
+            Don&#39;t have an account? <Link to="/register">Register</Link>
+          </Typography>
           <WHiteSpace height={50} />
         </Stack>
       </Stack>
