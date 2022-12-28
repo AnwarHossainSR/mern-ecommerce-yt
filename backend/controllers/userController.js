@@ -1,10 +1,10 @@
-const ErrorHander = require("../utils/errorhander");
-const catchAsyncErrors = require("../middleware/catchAsyncErrors");
-const User = require("../models/userModel.js");
-const crypto = require("crypto");
-const sendEmail = require("../utils/sendEmail");
-const sendToken = require("../utils/jwtToken");
-const cloudinary = require("cloudinary");
+const ErrorHander = require('../utils/errorhander');
+const catchAsyncErrors = require('../middleware/catchAsyncErrors');
+const User = require('../models/userModel.js');
+const crypto = require('crypto');
+const sendEmail = require('../utils/sendEmail');
+const sendToken = require('../utils/jwtToken');
+const cloudinary = require('cloudinary');
 
 // Register a User
 exports.registerUser = catchAsyncErrors(async (req, res, next) => {
@@ -35,19 +35,19 @@ exports.loginUser = catchAsyncErrors(async (req, res, next) => {
   // checking if user has given password and email both
 
   if (!email || !password) {
-    return next(new ErrorHander("Please Enter Email & Password", 400));
+    return next(new ErrorHander('Please Enter Email & Password', 400));
   }
 
-  const user = await User.findOne({ email }).select("+password");
+  const user = await User.findOne({ email }).select('+password');
 
   if (!user) {
-    return next(new ErrorHander("Invalid email or password", 401));
+    return next(new ErrorHander('Invalid email or password', 401));
   }
 
   const isPasswordMatched = await user.comparePassword(password);
 
   if (!isPasswordMatched) {
-    return next(new ErrorHander("Invalid email or password", 401));
+    return next(new ErrorHander('Invalid email or password', 401));
   }
 
   sendToken(user, 200, res);
@@ -55,26 +55,26 @@ exports.loginUser = catchAsyncErrors(async (req, res, next) => {
 
 // Logout User
 exports.logout = catchAsyncErrors(async (req, res, next) => {
-  res.cookie("token", null, {
+  res.cookie('token', null, {
     expires: new Date(Date.now()),
     httpOnly: true,
   });
 
   res.status(200).json({
     success: true,
-    message: "Logged Out",
+    message: 'Logged Out',
   });
 });
 
 // Forgot Password
 exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
   if (!req.body.email) {
-    return next(new ErrorHander("Email is required", 400));
+    return next(new ErrorHander('Email is required', 400));
   }
   const user = await User.findOne({ email: req.body.email });
 
   if (!user) {
-    return next(new ErrorHander("User not found", 404));
+    return next(new ErrorHander('User not found', 404));
   }
 
   // Get ResetPassword Token
@@ -83,7 +83,7 @@ exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
   await user.save({ validateBeforeSave: false });
 
   const resetPasswordUrl = `${req.protocol}://${req.get(
-    "host"
+    'host'
   )}/api/v1/password/reset/${resetToken}`;
 
   const message = `Your password reset token is :- \n\n ${resetPasswordUrl} \n\nIf you have not requested this email then, please ignore it.`;
@@ -113,9 +113,9 @@ exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
 exports.resetPassword = catchAsyncErrors(async (req, res, next) => {
   // creating token hash
   const resetPasswordToken = crypto
-    .createHash("sha256")
+    .createHash('sha256')
     .update(req.params.token)
-    .digest("hex");
+    .digest('hex');
 
   const user = await User.findOne({
     resetPasswordToken,
@@ -125,14 +125,14 @@ exports.resetPassword = catchAsyncErrors(async (req, res, next) => {
   if (!user) {
     return next(
       new ErrorHander(
-        "Reset Password Token is invalid or has been expired",
+        'Reset Password Token is invalid or has been expired',
         400
       )
     );
   }
 
   if (req.body.password !== req.body.confirmPassword) {
-    return next(new ErrorHander("Password does not matched", 400));
+    return next(new ErrorHander('Password does not matched', 400));
   }
 
   user.password = req.body.password;
@@ -156,16 +156,16 @@ exports.getUserDetails = catchAsyncErrors(async (req, res, next) => {
 
 // update User password
 exports.updatePassword = catchAsyncErrors(async (req, res, next) => {
-  const user = await User.findById(req.user.id).select("+password");
+  const user = await User.findById(req.user.id).select('+password');
 
   const isPasswordMatched = await user.comparePassword(req.body.oldPassword);
 
   if (!isPasswordMatched) {
-    return next(new ErrorHander("Old password is incorrect", 400));
+    return next(new ErrorHander('Old password is incorrect', 400));
   }
 
   if (req.body.newPassword !== req.body.confirmPassword) {
-    return next(new ErrorHander("password does not match", 400));
+    return next(new ErrorHander('password does not match', 400));
   }
 
   user.password = req.body.newPassword;
@@ -272,6 +272,6 @@ exports.deleteUser = catchAsyncErrors(async (req, res, next) => {
 
   res.status(200).json({
     success: true,
-    message: "User Deleted Successfully",
+    message: 'User Deleted Successfully',
   });
 });

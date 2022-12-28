@@ -2,12 +2,17 @@ import { Button, Stack, TextField, Typography } from '@mui/material';
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import WHiteSpace from '../../components/App/whitespac/WHiteSpace';
+import { PostRequest } from '../../utils/requests';
 
 const Login = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
   const handleSubmit = () => {
-    console.log(emailRef.current.value, passwordRef.current.value);
+    const response = PostRequest('/login', {
+      email: emailRef.current.value,
+      password: passwordRef.current.value,
+    });
+    console.log(response);
   };
   return (
     <Stack>
