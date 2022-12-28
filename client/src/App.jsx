@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import SuspenseFallback from './components/SuspenseFallback';
@@ -6,6 +7,11 @@ import { AdminLayout } from './Layouts/AdminLayout';
 import NotFound from './pages/404';
 
 const App = () => {
+  const token = localStorage.getItem('token');
+  axios.defaults.headers.common = { Authorization: `Bearer ${token}` };
+  axios.defaults.headers.post['Content-Type'] =
+    'application/x-www-form-urlencoded';
+
   return (
     <Suspense fallback={<SuspenseFallback />}>
       <Routes>
