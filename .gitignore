@@ -14,3 +14,5 @@ logs
 # Ignore IDE specific files
 .idea/
 *.sw*
+config.env
+/config.env
