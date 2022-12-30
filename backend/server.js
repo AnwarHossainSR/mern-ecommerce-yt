@@ -1,11 +1,11 @@
-const app = require('./app');
-const connectDatabase = require('./config/database');
+const app = require("./app");
+const connectDatabase = require("./config/database");
 
 // Config
-require('dotenv').config({path : 'config/config.env'});
+require("dotenv").config({ path: "config/config.env" });
 
 // Handling Uncaught Exception
-process.on('uncaughtException', (err) => {
+process.on("uncaughtException", (err) => {
   console.log(`Error: ${err.message}`);
   console.log(`Shutting down the server due to Uncaught Exception`);
   process.exit(1);
@@ -19,9 +19,11 @@ const server = app.listen(process.env.PORT, () => {
 });
 
 // Unhandled Promise Rejection
-process.on('unhandledRejection', (err) => {
+process.on("unhandledRejection", (err) => {
   console.log(`Error: ${err.message}`);
   console.log(`Shutting down the server due to Unhandled Promise Rejection`);
 
-  server.close(() => { process.exit(1); });
+  server.close(() => {
+    process.exit(1);
+  });
 });

@@ -1,5 +1,5 @@
-import {getApi} from '../../API/CallAPI';
-import {productFailure, productPending} from '../reducers/ProductSlice';
+import { getApi } from '../../API/CallAPI';
+import { productFailure, productPending } from '../reducers/ProductSlice';
 
 export const getAllProducts = () => async (dispatch) => {
   console.log('getAllProducts');
