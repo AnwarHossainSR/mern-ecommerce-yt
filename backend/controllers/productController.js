@@ -2,16 +2,15 @@ const catchAsyncErrors = require('../middleware/catchAsyncErrors');
 const Product = require('../models/productModel');
 const ApiFeatures = require('../utils/apifeatures');
 const ErrorHander = require('../utils/errorhander');
-const cloudinary = require('cloudinary');
+const cloudinary = require('../utils/cloudinaryConfig');
 
 // Create Product -- Admin
 exports.createProduct = catchAsyncErrors(async (req, res, next) => {
-
-  const result = await cloudinary.v2.uploader.upload(req.files.image, {
+  const result = await cloudinary.uploader.upload(req.file.path, {
     folder: 'products',
   });
 
-  res.status(200).json({
+  res.status(201).json({
     success: true,
     result,
   });
