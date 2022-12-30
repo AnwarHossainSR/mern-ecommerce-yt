@@ -33,7 +33,7 @@ const Search = () => {
 
           <div className="icon f_flex width">
             <div className="cart">
-              <Link to="/cart">
+              <Link to="/carts">
                 <i className="fa fa-shopping-bag icon-circle" />
                 <span>0</span>
               </Link>
